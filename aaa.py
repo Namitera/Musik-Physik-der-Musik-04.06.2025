@@ -32,7 +32,32 @@ class KonsonanzDissonanz(Scene):
         1
         
 
+class PitchFrequency(Scene):
+    def construct(self):
 
+        # self.add(NumberPlane())
+        axes = Axes(
+            x_range=[0,10 , 1],
+            y_range=[0, 4, 1],
+            x_length=10,
+            y_length=4,
+            axis_config={"include_tip": False},
+            tips=False
+        ).shift(UP*1.4 + RIGHT)
+
+        # ich weis nicht wieso aber diese linien sehen schief aus, optsiche täuschung
+        g1 = axes.plot(lambda x: np.sqrt(x), color=YELLOW)
+        g2 = axes.plot(lambda x: 1 +0*x)
+        g3 = axes.plot(lambda x: 2 +0*x)
+
+        x_label = Tex("Frequenz (Hz)").shift(UP*-1.5 +4*RIGHT)
+        y_label = Tex("Tonhöhe").scale(1).shift(-5.5*RIGHT + UP*3)
+
+        self.play(Write(axes), FadeIn(x_label), FadeIn(y_label), run_time=2)
+        self.wait(3)
+        self.play(Write(g1), run_time=2)
+        self.play(Write(g2), run_time=2)
+        self.play(Write(g3), run_time=2)
 
 
 
@@ -115,7 +140,7 @@ class NodeAntiNode(Scene):
 import soundfile as sf
 import os
 
-class Ist(Scene):
+class Bell(Scene):
     def construct(self):
 
         off = 0.05
@@ -131,71 +156,263 @@ class Ist(Scene):
             x_steps = int(len(wave))
 
             x_val = np.linspace(0, 0.7*duration, x_steps)
-            # print(x_steps)
-            # print(x_val)
-            # print(len(wave))
-            # print(freq)
             curve =  freq/(8.1*np.log(list1[-1])) * (1- np.power(np.e, -x_val)) * np.power(np.e, 0.25*np.sqrt(freq) * -1 * x_val)
-            print(curve)
             wave *= curve
-            print(len(wave))
             sf.write(filename, wave, samplerate)
 
         listprep = [250, 499, 601, 749, 1000, 1500, 2075, 2421]
-        # listprep = [250]
         list1 = []
         a = 0.24
         for i in range(len(listprep)):
             list1.append(listprep[i] - a*listprep[i])
 
-
-        # print(list1)
         for f in list1:
             dura = 3
             generate_tone(f, duration=dura)
 
 
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1577.wav', gain=volume, time_offset=off)
-        # self.wait(4)
-        # self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1577.wav', gain=volume, time_offset=off)
-        # self.add_sound('music_frequency/Bell/1839.wav', gain=volume, time_offset=off)
-        # self.wait(4)
+        axis = Axes(x_range=[-1,12,1], x_length=13, y_range=[-6,6,1], y_length=7, tips=False )
+        
+        l2 = []
+        for i in range(len(list1)):
+            l2.append(list1[i]/list1[0])
+
+
+        g2 = axis.plot(lambda x: np.sin(x*l2[0])+ np.sin(x*l2[1]))
+        g3 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]))
+        g4 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]))
+        g5 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]))
+        g6 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]))
+        g7 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]))
+        g8 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]))
+        g2.set_color(ManimColor((340- 85*l2[0],0,85*l2[0] -85)))
+        g3.set_color(ManimColor((340- 85*l2[1],0,85*l2[1] -85)))
+        g4.set_color(ManimColor((340- 85*l2[2],0,85*l2[2] -85)))
+        g5.set_color(ManimColor((340- 85*l2[3],0,85*l2[3] -85)))
+        g6.set_color(ManimColor((340- 85*l2[4],0,85*l2[4] -85)))
+        g7.set_color(ManimColor((340- 85*l2[5],0,85*l2[5] -85)))
+        g8.set_color(ManimColor((340- 85*l2[6],0,85*l2[6] -85)))
+
+
+        freq_text = always_redraw(
+            lambda: MathTex(r"f = " + str(int(list1[len(self.mobjects)-2])) + r"\ \mathrm{Hz}")
+            .scale(0.8)
+            .to_edge(DOWN)
+            .shift(UP*0.6)
+            .scale(2)
+        )
+        self.add(freq_text)
+
+        self.play(Write(axis), Write(g2), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g2, g3), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g3, g4), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g4, g5), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g5, g6), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g6, g7), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1577.wav', gain=volume, time_offset=off)
+        self.wait(3)
+        self.play(ReplacementTransform(g7, g8), run_time=2)
+        self.add_sound('music_frequency/Bell/190.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/379.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/456.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/569.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/760.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1140.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1577.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Bell/1839.wav', gain=volume, time_offset=off)
+        self.wait(3)
+
+
+
+class Guitar(Scene):
+    def construct(self):
+
+        off = 0.05
+        volume = -4
+
+        def generate_tone(freq, duration=3.0, samplerate=44100, folder="music_frequency/Guitar"):
+            os.makedirs(folder, exist_ok=True)
+            t = np.linspace(0, duration, int(samplerate * duration))
+            wave = 0.5 * np.sin(2 * np.pi * freq * t)
+            filename = os.path.join(folder, f"{int(freq)}.wav")
+
+            
+            x_steps = int(len(wave))
+
+            x_val = np.linspace(0, 0.7*duration, x_steps)
+            curve =  (21.373 * (1- np.power(np.e, -x_val)) * np.power(np.e, 7.37* -1 * x_val))/(0.2*np.sqrt(freq))
+            wave *= curve
+            sf.write(filename, wave, samplerate)
+
+        listprep = [196,392,587,784,980,1176,1372,1568,1764,1960,2156,2352]
+        list1 = []
+        a = 0.603
+        for i in range(len(listprep)):
+            list1.append(listprep[i] - a*listprep[i])
+
+
+        for f in list1:
+            dura = 1.5
+            generate_tone(f, duration=dura)
+
+        axis = Axes(x_range=[-1,12,1], x_length=13, y_range=[-6,6,1], y_length=7, tips=False )
+        
+        l2 = []
+        for i in range(len(list1)):
+            l2.append(list1[i]/list1[0])
+
+        g2 = axis.plot(lambda x: np.sin(x*l2[0])+ np.sin(x*l2[1]))
+        g3 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]))
+        g4 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]))
+        g5 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]))
+        g6 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]))
+        g7 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]))
+        g8 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]))
+        g9 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]) + np.sin(x*l2[8]))
+        g10 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]) + np.sin(x*l2[8]) + np.sin(x*l2[9]))
+
+
+        g2.set_color(ManimColor((340- 85*l2[0],0,85*l2[0] -85)))
+        g3.set_color(ManimColor((340- 85*l2[1],0,85*l2[1] -85)))
+        g4.set_color(ManimColor((340- 85*l2[2],0,85*l2[2] -85)))
+        g5.set_color(ManimColor((340- 85*l2[3],0,85*l2[3] -85)))
+        g6.set_color(ManimColor((340- 85*l2[4],0,85*l2[4] -85)))
+        g7.set_color(ManimColor((340- 85*l2[5],0,85*l2[5] -85)))
+        g8.set_color(ManimColor((340- 85*l2[6],0,85*l2[6] -85)))
+        g9.set_color(ManimColor((340- 85*l2[7],0,85*l2[7] -85)))
+        g10.set_color(ManimColor((340- 85*l2[8],0,85*l2[8] -85)))
+        g11 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]) + np.sin(x*l2[8]) + np.sin(x*l2[9]) + np.sin(x*l2[10]))
+        g11.set_color(ManimColor((340- 85*l2[9],0,85*l2[9] -85)))
+        g12 = axis.plot(lambda x: np.sin(x*l2[0]) + np.sin(x*l2[1]) + np.sin(x*l2[2]) + np.sin(x*l2[3]) + np.sin(x*l2[4]) + np.sin(x*l2[5]) + np.sin(x*l2[6]) + np.sin(x*l2[7]) + np.sin(x*l2[8]) + np.sin(x*l2[9]) + np.sin(x*l2[10]) + np.sin(x*l2[11]))
+        g12.set_color(ManimColor((340- 85*l2[10],0,85*l2[10] -85)))
+
+        freq_text = always_redraw(
+            lambda: MathTex(r"f = " + str(int(list1[len(self.mobjects)-2])) + r"\ \mathrm{Hz}")
+            .scale(0.8)
+            .to_edge(DOWN)
+            .shift(UP*0.6)
+            .scale(2)
+        )
+        self.add(freq_text)
+
+        self.play(Write(axis), Write(g2), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g2, g3), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g3, g4), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g4, g5), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g5, g6), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/622.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g6, g7), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/622.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/700.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g7, g8), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/622.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/700.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/778.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g8, g9), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/622.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/700.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/778.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/855.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
+        self.play(ReplacementTransform(g9, g10), run_time=2)
+        self.add_sound('music_frequency/Guitar/77.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/155.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/233.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/311.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/389.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/466.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/544.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/622.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/700.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/778.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/855.wav', gain=volume, time_offset=off)
+        self.add_sound('music_frequency/Guitar/933.wav', gain=volume, time_offset=off)
+        self.wait(2.5)
