@@ -1,0 +1,80 @@
+Scenes:
+Thumbnail
+Opening
+Begin
+PitchFrequency
+TunedUntuned
+ConsonanceDissonance
+NodeAntiNode
+Bell
+Guitar
+Frequency
+ASound
+ANoise
+Jadelith7
+Ending
+E1
+E2
+
+
+
+
+
+Begin:
+Jede Welle hat eine Höhe, diese nennen wir Amplitude. Diese Amplitude ist unabhängig von der Wellenlänge. Diese nennen wir λ und sie 
+wird dadurch beschrieben, bis eine volle Schwingung vollendet ist, also der selbe Teil der Welle nocheinmal vorliegt. Die Amplitude 
+gibt hier die Lautstärke des Tons an in dB und die Wellenlänge die physische Länge in Metern. Die Frequenz der Welle wird wie folgt 
+beschrieben. Die Schallgeschwindigkeit in der Luft ist etwas 342 m/s. Je nach Medium ändert sich die Tonhöhe. Eine Welle, die 2 Meter 
+lang ist hat eine Frequenz von 171.5 Hz, sprich sie schwingt 171.5 mal pro Sekunde.
+
+PitchFrequency:
+Nun wollen wir uns den Zusammenhang zwischen Frequenz und Tonhöhe ansehen. Sagen wir 440Hz hat eine Tonhöhe von 1. Um diese Tonhöhe 
+zu verdoppeln, muss man die Frequenz vervierfachen. Man sieht, dass Frequenz und Tonhöhe nicht linear abhängig sind. Verdoppelt man 
+die Frequenz, so ist die Tonhöhe gerade einmal 41% höher. Ein Instrument hat Tasten mit gleichmäßigen Tonhöhenunterschieden. Die 
+Frequenz muss dementsprechend exponentiell skaliert werden. 440 ist die Ausgangsfrequenz. Wir haben 12 Halbtonschritte. Die 2 steht 
+für die Verdoppelung. Dieser Ausdruck lässt sich sie folgt umschreiben. Der 0. Halbtonschritt ist einfach die Ausgangsfrequenz. 
+Die restlichen Frequenzen ergeben sich wie folgt. Der 12. Halbtonschritt hat dementsprechend die Frequenz 880. Somit haben wir jetzt 
+Frequenzen, welche gleichmäßige Tonhöhenunterschiede ergeben. Die Frequenzen sind dabei nicht linear skaliert. Diese gleichmäßige 
+Einteilung ergibt die chromatische Tonleiter die aus 12 Halbtonschritten besteht. Eine Oktave entspricht dabei der Verdopplung der 
+Frequenz, z. B. von 440Hz auf 880Hz. Darüber hinaus entstehen beim Musizieren nicht nur Grundtöne, sondern auch sogenannte 
+Obertöne oder Harmonische.
+
+TunedUntuned:
+Hört man denn diesen kleinen Unterschied überhaupt in den Frequenzen und der chromatischen Tonleiter? Hier ist ein direkter 
+Vergleich. Zunächst mit der gleichmäßigen Temperierung. Jetzt mit der linearen Methode. Hört sich schief an, nicht wahr?
+
+ConsonanceDissonance:
+Konsonanz bedeutet, dass etwas klingt, als ob es zueinander passt. Dissonanz bedeutet, dass die Töne nicht zu einander passen 
+und sich unharmonisch anhören. Die Quinte hört sich Konsonant an, wohingegen der Tritonus dissonant ist. Das ist die Frequenz 
+für die Note c und so berechnet man die Halbtonschritte von dort aus. Die Quinte hat als zweite Frequenz 783.98Hz und der Tritonus 
+739.98. Das Verhältnis entspricht 1 zu 1.498 und 1nzu 1.414. 1.498 lässt sich als einfaches Verhältnis 3/2 darstellen. Die 
+Wellenlängen addieren sich also gut, man hat ein einfaches Verhältnis und somit Konsonanz. Das Verhältnis des Tritonus ist 64/45 
+und unschön, weshalb dieser als eher dissonant empfunden wird.
+
+NodeAntiNode:
+Wenn eine Saite schwingt, dann ist diese an zwei Enden festgebunden. Dadurch ergibt sich ein interessantes Verhalten. Zunächst wird 
+die Saite mit einer Frequenz von 40Hz geschwungen. Die festen Punkte, welche sich nicht bewegen heißen Knoten. Die Punkte die sich 
+entlang der Amplitude der Welle bewegen heißen Antiknoten. Diese Welle bezeichnet man auch als Stehende Welle, weil sich die Hoch- 
+und Tiefpunkte nicht nach links oder rechts bewegen. 
+
+Bell:
+Durch additive Synthese kann man verschiedene Instrumente erzeugen. Hier ist eine Glocke. Man nimmt die Obertöne und mischt noch 
+weitere Frequenzen dazu und so bekommt man eine Glocke.
+
+Guitar:
+Nimmt man nun nur vielfache einer Frequenz, also auch Oktaven, so erhält man den Klang einer Gitarre.
+
+Frequency:
+Hier sind die verwendeten Frequenzen für diese Synthese.
+
+ASound:
+Man kann unterscheiden zwischen einem Ton und einem Geräusch. Natürlich setzen sich beide aus vielen Frequenzen zusammen, jedoch 
+gibt es einige Unterschiede. Diese sind intuitiv durch hören und sehen verstehbar.
+
+ANoise:
+Hier sieht man, dass es nicht wirklich eine Symmetrie oder gleichmäßige Struktur gibt. Wir haben also ein Geräusch.
+
+Ending:
+Das Programm mit dem ich arbeite ist Manim, eine custom Python Bibliothek zum erstellen mathematischer Animation. Die Musik die 
+ihr hört ist von Vincent Rubinetti. Den Download zu allen Inhalten des Vortrags findet ihr unter dem GitHub Link, genauso wie 
+die Quellen. Desmos ist ein Grafikrechner mit dem ich Ideen und Konzepte erstelle.
