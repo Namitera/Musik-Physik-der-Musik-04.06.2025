@@ -1,0 +1,172 @@
+Scenes:
+Thumbnail
+Opening
+Begin
+PitchFrequency
+TunedUntuned
+ConsonanceDissonance
+NodeAntiNode
+Bell
+Guitar
+Frequency
+ASound
+ANoise
+Jadelith7
+Ending
+E1
+E2
+
+(Int bedeutet, dass dieser Text vor dem Folienwechsel gesagt wird, also quasi zwischen den Scenes.)
+
+
+
+(Teil 1, Folie 1) Thumbnail:
+kein Text
+
+
+
+(Teil 1, Folie 2) Opening:
+kein Text
+
+
+
+(Teil 1, Folie 1/2)
+Int1: Wellen bewegen sich durch die Luft. Dabei bringen sie die Luft zum Schwingen und erzeugen verschiedene 
+Bereiche mit hohem und niedrigem Druck. Diese Welle erreicht unser Ohr und lässt die Flüssigkeit schwappen. 
+Die Ohrhärchen werden dadurch in Schwingung versetzt und senden ein elektrisches Signal an unser Gehirn. So 
+nehmen wir Geräusche oder Musik war. Wir haben bereits verschiedene Wellen gesehen, aber wie hängt das Aussehen 
+einer Welle mit dem Ton zusammen, den sie wiedergibt? 
+
+
+
+(Teil 1, Folie 3) Begin: Jede Welle hat eine Höhe, diese nennen wir Amplitude. Die Amplitude ist unabhängig von der Wellenlänge. 
+Die Wellenlänge nennen wir λ (lambda) und sie wird dadurch definiert, dass die Welle eine volle Schwingung 
+vollendet hat, also derselbe Teil der Welle noch einmal vorliegt. Dies kann bspw. zwischen zwei Hochpunkten 
+sein, oder auch zwischen den Nullstellen mit positiver Steigung. Die Amplitude gibt hier die Lautstärke des 
+Tons an in dB (Decibel) und die Wellenlänge die physische Länge in m (Meter). Die Frequenz der Welle wird wie 
+folgt beschrieben: f=v/λ; Die Schallgeschwindigkeit v in der Luft ist etwas 342 m/s. Je nach Medium ändert 
+sich die Frequenz. So ist die Schallgeschwindigkeit im Wasser anders. Zudem ist die Frequenz abhängig von der 
+Wellenlänge. Große Wellenlänge = niedrige Frequenz, kleine Wellenlänge = hohe Frequenz. Eine Welle, die 2 Meter 
+lang ist im Medium Luft hat eine Frequenz von etwa 171.5 Hz (Hertz), sprich sie schwingt 171.5 mal pro Sekunde. 
+
+
+
+(Teil 1, Folie 4) PitchFrequency: Nun wollen wir uns den Zusammenhang zwischen Frequenz und Tonhöhe ansehen. Sagen wir die 
+Frequenz 440Hz hat eine Tonhöhe von 1. Um die Tonhöhe zu verdoppeln, muss man die Frequenz vervierfachen auf 
+1760Hz. Man sieht, dass Frequenz und Tonhöhe nicht linear abhängig sind. Verdoppelt man die Frequenz, so ist 
+die Tonhöhe gerade einmal 41% höher (1 zu sqrt(2)). Ein Instrument hat Tasten, wie ein Klavier, mit gleichmäßigen 
+Tonhöhenunterschieden. Die Frequenz muss dementsprechend exponentiell skaliert werden. Eine Verdoppelung der 
+Frequenz entspricht genau einer Oktave. Mit einer Formel berechnet man nun die Frequenzen der 12 Halbtonschritte. 
+f_n = f_0 * 2^(n/12); In unserem Beispiel war es f_n = 440 * 2^(n/12). 440 ist die Ausgangsfrequenz, also unser 
+unterster Ton. Die 2 steht für die Verdoppelung, da wir eine Oktave haben wollen. Eine Oktave hat 12 
+Halbtonschritte, daher kommt die 12. Das n steht für den wievielten Halbtonschritt wir die Frequenz berechnen, 
+also den 1. 2. 3. usw. Dieser Ausdruck lässt sich sie folgt umschreiben zur Vereinfachung: 
+f_n = 440 * sqrt[12]{2^(n)}; Der 0. Halbtonschritt ist einfach die Ausgangsfrequenz. Die restlichen Frequenzen 
+ergeben sich für weitere Werte von n. Der 12. Halbtonschritt hat dementsprechend die Frequenz 880. Somit haben 
+wir jetzt Frequenzen, welche gleichmäßige Tonhöhenunterschiede ergeben. Die Frequenzen sind dabei nicht linear 
+skaliert. Diese gleichmäßige Einteilung ergibt die chromatische Tonleiter, die aus 12 Halbtonschritten besteht. 
+Der Grundton ist unser Ausgangston. Vielfache dieses Tons (440 > 880 > 1320...) bilden die Harmonischen oder 
+auch eine harmonische Reihe. 
+
+
+
+(Teil 1, Folie 5) TunedUntuned: Hört man denn diesen kleinen Unterschied überhaupt in den Frequenzen, wenn ich sie linear vs. 
+exponentiell skaliere? Hier ist ein direkter Vergleich. Zunächst mit der gleichmäßigen Temperierung. Jetzt 
+mit der linearen Methode. Hört sich schief an, nicht wahr? 
+
+
+
+(Teil 1, Folie 6) ConsonanceDissonance: Konsonanz bedeutet, dass etwas klingt, als ob es zueinander passt. Dissonanz bedeutet, 
+dass die Töne nicht zueinander passen und sich unharmonisch anhören. Die Quinte hört sich Konsonant an, 
+wohingegen der Tritonus dissonant ist. Die Frequenz für die Note c ist 523.25Hz. Und so berechnet man die 
+Halbtonschritte, wie eben: f_n = 523.25 * 2^(n/12); Die Quinte hat als zweite Frequenz 783.98Hz mit 7 
+Halbtonschritten und der Tritonus 739.98Hz mit 6 Halbtonschritten. Das Verhältnis entspricht 1 zu 1.498 
+bei der Quinte und 1 zu 1.414 beim Tritonus. 1.498 lässt sich etwa als einfaches Verhältnis 3/2 darstellen. 
+Die Wellenlängen addieren sich also gut, man hat ein einfaches Verhältnis und somit Konsonanz. Das Verhältnis 
+des Tritonus ist etwas 64/45. Es ist unschön und hat große Zahlen, weshalb dieser als eher dissonant empfunden 
+wird. 
+
+
+
+(Teil 1, Folie 6/7)
+Int2: Nun wollen wir eine Gitarrensaite betrachten, welche in Schwingung gebracht wird. Sie kann nämlich nur 
+auf bestimmte Arten schwingen, weshalb man mehrere Saiten zum Spielen braucht. 
+
+
+
+(Teil 1, Folie 7) NodeAntiNode: Wenn eine Saite der Gitarre schwingt, dann ist diese an zwei Enden festgebunden. Dadurch ergibt 
+sich ein interessantes Verhalten. Zunächst wird die Saite mit einer Frequenz von 40Hz geschwungen. Die festen 
+Punkte, welche sich nicht bewegen heißen Knoten (blau). Die Punkte die sich entlang der Amplitude der Welle 
+bewegen heißen Antiknoten (grün). Der Faden schwingt nun mit seiner Eigenfrequenz, seiner Resonanz. Dies ist 
+die natürliche einfache Schwingung der Saite, hier mit n=1 verdeutlicht. Sei die Länge der Saite L, so wird 
+diese auch über die Wellenlänge definiert, mit der die Saite schwingt: L = λ/2; Nun kann die Saite auch mit 
+der doppelten Resonanz schwingen, sprich n=2. Dadurch ergeben sich weitere Knoten und Antiknoten, die Amplitude 
+wird kleiner und die Saite schwingt schneller. Dementsprechend ist die Länge L nun definiert als: L = λn / 2; 
+Da wir wissen: f=v/λ; ergibt sich durch Einsetzen: f_n = nv / 2L; Die Frequenz einer Seite ist abhängig von der 
+Resonanz, dem Medium und der Saitenlänge. Diese Art der Welle bezeichnet man auch als Stehende Welle, weil 
+sich die Hoch- und Tiefpunkte nicht nach links oder rechts bewegen und sie sozusagen auf der Stelle steht, 
+wohingegen die Wellen am Anfang sich zur Seite bewegen. 
+
+
+
+(Teil 1, Folie 7/8)
+Int3: Stehende Wellen entstehen, wenn zwei Wellen gleicher Frequenz, Amplitude und Wellenlänge sich in 
+entgegengesetzten Richtungen überlagern. Das passiert zum Beispiel, wenn eine Welle auf ein festes Ende trifft 
+und reflektiert wird. Diese Wellen verstärken den Ton des Instruments.  
+
+
+
+(Teil 2, Folie 2) Bell: Durch additive Synthese kann man verschiedene Instrumente erzeugen, sprich mehrere Frequenzen gleichzeitig 
+abspielen. Die Klangfarbe macht das Instrument aus. Dadurch lässt es sich von anderen unterscheiden, auch 
+wenn sie denselben Ton spielen. Hier ist eine Glocke. Man nimmt die Obertöne und mischt noch weitere Frequenzen 
+dazu und so hört es sich wie eine Glocke an. Obertöne sind ähnlich wie die harmonische Reihe, nur das hier 
+die Töne über dem Grundton gemeint sind und dieser nicht mitgemeint ist. 
+
+
+
+(Teil 2, Folie 3) Guitar: Nimmt man nun nur vielfache einer Frequenz, also Oktaven, so erhält man den Klang einer Gitarre. 
+
+
+
+(Teil 2, Folie 4) Frequency: Hier sind die verwendeten Frequenzen für diese Synthese. Ich habe die Tonhöhe etwas heruntergesetzt, 
+sodass sie sich noch mehr nach diesen Instrumenten anhöhren. Das Vielfache der Frequenzen bleibt tatsächlich 
+bei diesem Vorgang erhalten. 
+
+
+
+(Teil 2, Folie 5) ASound: Man kann unterscheiden zwischen einem Ton und einem Geräusch. Natürlich setzen sich beide aus vielen 
+Frequenzen zusammen, jedoch gibt es einige Unterschiede. Diese sind intuitiv durch hören und sehen verstehbar. 
+Die Wellen folgt einer bestimmten Symmertrie. Sie ist periodisch, also wiederkehrend, und gleichmäßig. Sie 
+ist rein in hat Ordnung 
+
+
+
+(Teil 2, Folie 6) ANoise: Hier sieht man, dass es nicht wirklich eine Symmetrie oder gleichmäßige Struktur gibt. Wir haben also 
+ein Geräusch. Wenn man auf den Tisch haut, entstehen viele verschiedene Frequenzen, die nicht zueinander passen. 
+Sie sind dissonant oder keine vielfachen und vorallem auch zufällig. 
+
+
+
+(Teil 2, Folie 7) Jadelith7: Jeder Ton hat eine Frequenz, welche die Tonhöhe bestimmt. Definiert man das mittlere A auf die 
+Frequenz 440Hz, dann ergeben sich die Frequenzen der anderen Töne daraus. Nimmt man nun die Noten des Musikstückes, 
+dann kann man jede Note in eine Frequenz umwandeln und diese mit den entsprechenden Notenwerten abspielen und 
+aneinanderreihen. Somit ergibt sich folgendes Stück. Die Frequenz hat zwar die richtige Tonhöhe, aber hört 
+sich nicht wie das Instrument an, da die Obertöne und weitere Frequenzen fehlen, welche die Klangfarbe des 
+Instruments ausmachen 
+
+
+
+(Teil 2, Folie 8) Ending: Das Programm, mit dem ich arbeite, ist Manim, eine custom Python Bibliothek zum Erstellen mathematischer 
+Animation. Die Musik, die ihr hört, ist von Vincent Rubinetti. Den Download zu allen Inhalten des Vortrags findet 
+ihr unter dem GitHub Link, genauso wie die Quellen. Desmos ist ein Grafikrechner, mit dem ich Ideen und Konzepte 
+erstelle. 
+
+
+
+(Teil 2, Folie 9) E1: 
+kein Text 
+
+
+
+(Teil 2, Folie 1) E2:
+kein Text 
