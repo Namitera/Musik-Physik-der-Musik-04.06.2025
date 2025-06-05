@@ -1,0 +1,43 @@
+Ich gebe eine kurze Einführung wie man die Dateien von GitHub 
+herunterlädt und was welche Dateien sind.
+Klicke auf die gewünschte Datei und dann auf View raw / Rohdaten 
+anzeigen klicken (ein blauer Knopf). Der Download wird jetzt 
+starten. Habt ihr eine Text-Datei (.txt) macht ihr ganz einfach 
+copy paste (nach rechts scrollen nicht vergessen, da ist noch 
+mehr Text!). Handelt es sich um eine Datei in einem Ordner 
+(wie seit ihr hier gelandet?) sucht im Internet nach: github 
+download folder; ich verstehe das auch nicht.
+
+
+Hier ist kurz erklärt was welche Dateien sind:
+
+physik_der_musik (Teil 1).pptx:
+Das ist die PowerPoint. Sie ist in 2 Teile unterteilt, weil die 
+gesamte Datei zu groß für GitHub ist.
+
+physik_der_musik (Teil 2).pptx:
+Das ist dementsprechend der 2. Teil
+
+Script.txt:
+Das ist der Text, den ich vorgetragen habe. Die Folien auf die 
+sich der Text bezieht sind in der Datei gekennzeichnet.
+
+manim physik_der_musik.py -pqh
+Das ist der Ordner mit den Videos, bevor sie in PowerPoint 
+eingefügt sind.
+
+Quellen.txt:
+Alle Quellen, welche ich verwendet habe.
+
+bildsoundtestpdm1.pptx:
+Hiermit überprüft man den Beamer, ob die Qualität gut ist und 
+ob der Ton funktioniert.
+
+physik_der_musik.py:
+Das ist der Code den ich geschrieben habe, um die Videos zu 
+erstellen... 25 Stunden Spaß... Wer die Insights sehen will 
+oder sonst was damit machen will.
+
+music_frequency:
+Hier sind alle Bilder und Sound-Dateien hinterlegt, welche 
+zu sehen und zu hören waren.
